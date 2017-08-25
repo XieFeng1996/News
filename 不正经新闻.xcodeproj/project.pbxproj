@@ -282,6 +282,24 @@
 			path = "P姐";
 			sourceTree = "<group>";
 		};
+		5F13F1861F502AA0004D4211 /* 库文件 */ = {
+			isa = PBXGroup;
+			children = (
+				5F44C3851F4E8E6E000300F2 /* FMDB */,
+				5F442D261F4853FD004943C0 /* SDWebImage */,
+				5F6F98321F3463E60073598D /* AFNetworking */,
+			);
+			name = "库文件";
+			sourceTree = "<group>";
+		};
+		5F13F1871F502ABB004D4211 /* 本地图片 */ = {
+			isa = PBXGroup;
+			children = (
+				5F9A38D81F3B126E00761003 /* BtnImage */,
+			);
+			name = "本地图片";
+			sourceTree = "<group>";
+		};
 		5F227A0D1F3BF0DA0023A79B /* find */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,21 +341,6 @@
 				5F3711C41F4FB57900FA527E /* AdvertiseViewController.m */,
 			);
 			name = Advertising;
-			sourceTree = "<group>";
-		};
-		5F3711BF1F4FAD2E00FA527E /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				5F6F97F41F3450B40073598D /* AppDelegate.h */,
-				5F6F97F51F3450B40073598D /* AppDelegate.m */,
-				5F6F97F71F3450B40073598D /* ViewController.h */,
-				5F6F97F81F3450B40073598D /* ViewController.m */,
-				5F6F97FA1F3450B40073598D /* Main.storyboard */,
-				5F6F97FD1F3450B40073598D /* Assets.xcassets */,
-				5F6F97FF1F3450B40073598D /* LaunchScreen.storyboard */,
-				5F6F98021F3450B40073598D /* Info.plist */,
-			);
-			name = Root;
 			sourceTree = "<group>";
 		};
 		5F442D261F4853FD004943C0 /* SDWebImage */ = {
@@ -534,12 +537,17 @@
 		5F6F97F01F3450B40073598D /* 新闻 */ = {
 			isa = PBXGroup;
 			children = (
-				5F3711BF1F4FAD2E00FA527E /* Root */,
+				5F6F97F41F3450B40073598D /* AppDelegate.h */,
+				5F6F97F51F3450B40073598D /* AppDelegate.m */,
+				5F6F97F71F3450B40073598D /* ViewController.h */,
+				5F6F97F81F3450B40073598D /* ViewController.m */,
+				5F6F97FA1F3450B40073598D /* Main.storyboard */,
+				5F6F97FD1F3450B40073598D /* Assets.xcassets */,
+				5F6F97FF1F3450B40073598D /* LaunchScreen.storyboard */,
+				5F6F98021F3450B40073598D /* Info.plist */,
+				5F13F1871F502ABB004D4211 /* 本地图片 */,
+				5F13F1861F502AA0004D4211 /* 库文件 */,
 				5F3711BE1F4FAD1100FA527E /* Advertising */,
-				5F44C3851F4E8E6E000300F2 /* FMDB */,
-				5F442D261F4853FD004943C0 /* SDWebImage */,
-				5F9A38D81F3B126E00761003 /* BtnImage */,
-				5F6F98321F3463E60073598D /* AFNetworking */,
 				5F6F97F11F3450B40073598D /* Supporting Files */,
 				5F227A0D1F3BF0DA0023A79B /* find */,
 				5F227A0F1F3BF10B0023A79B /* MY */,
