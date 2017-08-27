@@ -247,7 +247,7 @@ NSInteger VideoPage =1;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UIImage *img = [[UIImage imageNamed:@"find"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *img = [[UIImage imageNamed:@"发现.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     UITabBarItem *tab = [[UITabBarItem alloc]initWithTitle:@"发现" image:img tag:1];
     UIBarButtonItem *Search = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(SearchNews)];

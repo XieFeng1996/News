@@ -363,9 +363,9 @@ BOOL isLogin = false;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIImage *img = [[UIImage imageNamed:@"MY"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *img = [[UIImage imageNamed:@"个人.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    UITabBarItem *tabBarItem = [[UITabBarItem alloc]initWithTitle:@"设置" image:img tag:3];
+    UITabBarItem *tabBarItem = [[UITabBarItem alloc]initWithTitle:@"设置" image:img tag:4];
     
     self.tabBarItem = tabBarItem;
     self.navigationItem.title = @"设置";

@@ -11,6 +11,7 @@
 #import "HotView.h"
 #import "MYView.h"
 #import "AdvertiseView.h"
+#import "CollectionView.h"
 /*
   以热点资讯为主视图
  */
@@ -32,19 +33,23 @@
     FindView *find = [[FindView alloc]init];
     HotView *hot = [[HotView alloc]init];
     MYView *my = [[MYView alloc]init];
+    CollectionView *coll = [[CollectionView alloc]init];
     
     //导航控制器
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:hot];
     
     UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:my];
     
+    UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:coll];
+    
     find.view.backgroundColor = [UIColor whiteColor];
     hot.view.backgroundColor =[UIColor whiteColor];
     my.view.backgroundColor = [UIColor whiteColor];
+    coll.view.backgroundColor = [UIColor whiteColor];
     
     UITabBarController *tbc = [[UITabBarController alloc]init];
     
-    NSArray *arrayVC = [NSArray arrayWithObjects:find,nav,nav2,nil];
+    NSArray *arrayVC = [NSArray arrayWithObjects:find,nav,nav3,nav2,nil];
     
     tbc.viewControllers = arrayVC;
     tbc.selectedIndex = 1;

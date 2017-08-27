@@ -87,6 +87,13 @@
 		5F73DA661F42DBCA00276B22 /* JokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F73DA641F42DBCA00276B22 /* JokeViewController.m */; };
 		5F8A7D7F1F4A88E3000B80D9 /* Video.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F8A7D7E1F4A88E3000B80D9 /* Video.png */; };
 		5F8A7D821F4ACD55000B80D9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8A7D811F4ACD55000B80D9 /* MediaPlayer.framework */; };
+		5F9F5AD51F53017F00DD8B89 /* CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F5AD41F53017F00DD8B89 /* CollectionView.m */; };
+		5F9F5ADC1F53021700DD8B89 /* 个人.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9F5AD71F53021700DD8B89 /* 个人.png */; };
+		5F9F5ADD1F53021700DD8B89 /* 发现.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9F5AD81F53021700DD8B89 /* 发现.png */; };
+		5F9F5ADE1F53021700DD8B89 /* 图片.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9F5AD91F53021700DD8B89 /* 图片.png */; };
+		5F9F5ADF1F53021700DD8B89 /* 视频.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9F5ADA1F53021700DD8B89 /* 视频.png */; };
+		5F9F5AE01F53021700DD8B89 /* 资讯热点.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9F5ADB1F53021700DD8B89 /* 资讯热点.png */; };
+		5F9F5AE41F53060600DD8B89 /* MYCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F5AE31F53060600DD8B89 /* MYCollectionViewCell.m */; };
 		5FEEAF1C1F47423600162BAF /* zuosi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FEEAF1B1F47423600162BAF /* zuosi.jpg */; };
 /* End PBXBuildFile section */
 
@@ -233,6 +240,15 @@
 		5F73DA641F42DBCA00276B22 /* JokeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeViewController.m; sourceTree = "<group>"; };
 		5F8A7D7E1F4A88E3000B80D9 /* Video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Video.png; sourceTree = "<group>"; };
 		5F8A7D811F4ACD55000B80D9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		5F9F5AD31F53017F00DD8B89 /* CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionView.h; sourceTree = "<group>"; };
+		5F9F5AD41F53017F00DD8B89 /* CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionView.m; sourceTree = "<group>"; };
+		5F9F5AD71F53021700DD8B89 /* 个人.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "个人.png"; sourceTree = "<group>"; };
+		5F9F5AD81F53021700DD8B89 /* 发现.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发现.png"; sourceTree = "<group>"; };
+		5F9F5AD91F53021700DD8B89 /* 图片.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片.png"; sourceTree = "<group>"; };
+		5F9F5ADA1F53021700DD8B89 /* 视频.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "视频.png"; sourceTree = "<group>"; };
+		5F9F5ADB1F53021700DD8B89 /* 资讯热点.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "资讯热点.png"; sourceTree = "<group>"; };
+		5F9F5AE21F53060600DD8B89 /* MYCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYCollectionViewCell.h; sourceTree = "<group>"; };
+		5F9F5AE31F53060600DD8B89 /* MYCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYCollectionViewCell.m; sourceTree = "<group>"; };
 		5FEEAF1B1F47423600162BAF /* zuosi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zuosi.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -537,6 +553,8 @@
 		5F6F97F01F3450B40073598D /* 新闻 */ = {
 			isa = PBXGroup;
 			children = (
+				5F9F5AD61F53021700DD8B89 /* 新图标 */,
+				5F9F5ACD1F5300CB00DD8B89 /* 瀑布流图片 */,
 				5F6F97F41F3450B40073598D /* AppDelegate.h */,
 				5F6F97F51F3450B40073598D /* AppDelegate.m */,
 				5F6F97F71F3450B40073598D /* ViewController.h */,
@@ -614,6 +632,45 @@
 			path = BtnImage;
 			sourceTree = SOURCE_ROOT;
 		};
+		5F9F5ACD1F5300CB00DD8B89 /* 瀑布流图片 */ = {
+			isa = PBXGroup;
+			children = (
+				5F9F5AE11F5305E500DD8B89 /* View */,
+				5F9F5AD21F53016700DD8B89 /* ViewControl */,
+			);
+			name = "瀑布流图片";
+			sourceTree = "<group>";
+		};
+		5F9F5AD21F53016700DD8B89 /* ViewControl */ = {
+			isa = PBXGroup;
+			children = (
+				5F9F5AD31F53017F00DD8B89 /* CollectionView.h */,
+				5F9F5AD41F53017F00DD8B89 /* CollectionView.m */,
+			);
+			name = ViewControl;
+			sourceTree = "<group>";
+		};
+		5F9F5AD61F53021700DD8B89 /* 新图标 */ = {
+			isa = PBXGroup;
+			children = (
+				5F9F5AD71F53021700DD8B89 /* 个人.png */,
+				5F9F5AD81F53021700DD8B89 /* 发现.png */,
+				5F9F5AD91F53021700DD8B89 /* 图片.png */,
+				5F9F5ADA1F53021700DD8B89 /* 视频.png */,
+				5F9F5ADB1F53021700DD8B89 /* 资讯热点.png */,
+			);
+			path = "新图标";
+			sourceTree = SOURCE_ROOT;
+		};
+		5F9F5AE11F5305E500DD8B89 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F9F5AE21F53060600DD8B89 /* MYCollectionViewCell.h */,
+				5F9F5AE31F53060600DD8B89 /* MYCollectionViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -672,13 +729,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F9F5ADF1F53021700DD8B89 /* 视频.png in Resources */,
 				5F120CB51F3F337300198181 /* P2.jpg in Resources */,
 				5F618BB41F3DEAC20085909E /* NoImage.png in Resources */,
+				5F9F5ADD1F53021700DD8B89 /* 发现.png in Resources */,
 				5F6F98011F3450B40073598D /* LaunchScreen.storyboard in Resources */,
 				5F44C3A01F4F39D4000300F2 /* Lcon60@3x.png in Resources */,
+				5F9F5ADE1F53021700DD8B89 /* 图片.png in Resources */,
 				5F6264771F400DB50056DD1F /* A2.png in Resources */,
 				5F44C39B1F4ECFCB000300F2 /* coco@2x.jpg in Resources */,
 				5F120CB41F3F337300198181 /* P1.jpg in Resources */,
+				5F9F5AE01F53021700DD8B89 /* 资讯热点.png in Resources */,
 				5F8A7D7F1F4A88E3000B80D9 /* Video.png in Resources */,
 				5F6F97FE1F3450B40073598D /* Assets.xcassets in Resources */,
 				5F120CB81F3F337300198181 /* P5.jpg in Resources */,
@@ -694,6 +755,7 @@
 				5F62647A1F400DB50056DD1F /* A0.png in Resources */,
 				5FEEAF1C1F47423600162BAF /* zuosi.jpg in Resources */,
 				5F62647B1F400DB50056DD1F /* A1.png in Resources */,
+				5F9F5ADC1F53021700DD8B89 /* 个人.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +772,7 @@
 				5F73DA3D1F429FFF00276B22 /* Domestic.m in Sources */,
 				5F442D681F4853FE004943C0 /* SDWebImageManager.m in Sources */,
 				5F442D691F4853FE004943C0 /* SDWebImagePrefetcher.m in Sources */,
+				5F9F5AD51F53017F00DD8B89 /* CollectionView.m in Sources */,
 				5F6F97F91F3450B40073598D /* ViewController.m in Sources */,
 				5F442D5A1F4853FD004943C0 /* SDImageCache.m in Sources */,
 				5F44C3811F4E8401000300F2 /* TravelModel.m in Sources */,
@@ -724,6 +787,7 @@
 				5F44C37B1F4E8060000300F2 /* DomesticModel.m in Sources */,
 				5F618BB21F3DE1100085909E /* webViw.m in Sources */,
 				5F6F98131F3451350073598D /* MYView.m in Sources */,
+				5F9F5AE41F53060600DD8B89 /* MYCollectionViewCell.m in Sources */,
 				5F442D6B1F4853FE004943C0 /* NSImage+WebCache.m in Sources */,
 				5F442D661F4853FE004943C0 /* SDWebImageCompat.m in Sources */,
 				5F442D5F1F4853FD004943C0 /* UIImage+WebP.m in Sources */,

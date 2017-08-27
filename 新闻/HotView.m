@@ -244,7 +244,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIImage *img = [[UIImage imageNamed:@"hot"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *img = [[UIImage imageNamed:@"资讯热点.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     UITabBarItem *tab = [[UITabBarItem alloc]initWithTitle:@"资讯热点" image:img tag:2];
     
