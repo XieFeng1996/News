@@ -263,6 +263,9 @@ BOOL isLogin = false;
             NSArray *textfields =alert.textFields;
             UITextField *namefield = textfields[0];
             UITextField *passwordfield = textfields[1];
+            //查询是否正确插入
+//            NSString *strPath = [NSHomeDirectory() stringByAppendingString:@"/Documents/figues.db"];
+//            _FMDB = [FMDatabase databaseWithPath:strPath];
             
             //模拟登陆操作
             if (_FMDB !=nil) {
@@ -281,6 +284,7 @@ BOOL isLogin = false;
                     NSString *name = [[NSString alloc]initWithString:namefield.text];
                     NSString *password = [[NSString alloc]initWithString:passwordfield.text];
                     
+                    
                     if([name isEqualToString:SQlistName]&[password isEqualToString:SQlistPassword]){
                         [self pushAlertController:@"登陆成功" andMessage:@"模拟登陆成功"];
                         //self.title = @"Pyrrha";
@@ -289,7 +293,7 @@ BOOL isLogin = false;
                         isLogin = true;
                         [_tableView reloadData];
                     }else{
-                        [self pushAlertController:@"登陆失败" andMessage:@"请检查登陆账号或密码\n<正确账号:Pyrrha\n正确密码:12345678>"];
+                        [self pushAlertController:@"登陆失败" andMessage:@"请检查登陆账号或密码\n<正确账号:XF\n正确密码:1234>"];
                     }
                 }
             }else{
@@ -329,7 +333,7 @@ BOOL isLogin = false;
 #pragma Mark  --- 数据库相关
 -(void)creatSqLite{
     //表路径
-    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+    NSString *documentsPath = [NSHomeDirectory() stringByAppendingString:@"/Documents/figues.db"];
     
     //文件路径
     NSString *filePath = [documentsPath stringByAppendingString:@"Login.sqlite"];
@@ -337,23 +341,20 @@ BOOL isLogin = false;
     //实例化FMDB对象
     _FMDB = [FMDatabase databaseWithPath:filePath];
     
-    [_FMDB open];
+    BOOL isopen = [_FMDB open];
+    if (isopen) {
+        NSLog(@"数据库打开");
+    }
     
     //初始化数据表
     NSString *userInfo = @"create table if not exists figues(id interger primary key,name varchar(20),password varchar(20));";
     [_FMDB executeUpdate:userInfo];
 
     NSString *strQuery = @"select *from figues;";
-    FMResultSet *result = [_FMDB executeQuery:strQuery];
-    while ([result next]) {
-         NSInteger figuesID =[result intForColumn:@"id"];
-        if (figuesID == 1) {
-            //NSLog(@"不操作");
-            return;
-        }else{
-            NSString *Info = @"insert into figues values(1,'Pyrrha','12345678');";
-            [_FMDB executeUpdate:Info];
-        }
+    NSString *Info = @"insert into figues values(1,'XF','1234');";
+    BOOL is = [_FMDB executeUpdate:Info];
+    if (is) {
+        NSLog(@"插入成功");
     }
     //安全起见
     [_FMDB close];
