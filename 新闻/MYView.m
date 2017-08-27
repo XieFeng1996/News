@@ -350,7 +350,6 @@ BOOL isLogin = false;
     NSString *userInfo = @"create table if not exists figues(id interger primary key,name varchar(20),password varchar(20));";
     [_FMDB executeUpdate:userInfo];
 
-    NSString *strQuery = @"select *from figues;";
     NSString *Info = @"insert into figues values(1,'XF','1234');";
     BOOL is = [_FMDB executeUpdate:Info];
     if (is) {
