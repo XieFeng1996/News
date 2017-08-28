@@ -49,8 +49,9 @@
     
     UITabBarController *tbc = [[UITabBarController alloc]init];
     
-    NSArray *arrayVC = [NSArray arrayWithObjects:find,nav,nav3,nav2,nil];
-    
+    //NSArray *arrayVC = [NSArray arrayWithObjects:find,nav,nav3,nav2,nil];
+    NSArray *arrayVC = [NSArray arrayWithObjects:find,nav,nav2,nil];
+
     tbc.viewControllers = arrayVC;
     tbc.selectedIndex = 1;
     
