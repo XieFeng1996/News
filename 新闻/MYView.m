@@ -9,6 +9,7 @@
 #import "MYView.h"
 #import "AppDelegate.h"
 #import "AFNetworking.h"
+#import "LoginViewController.h"
 #define ImageCount 5
 #define NavigationHeight self.navigationController.navigationBar.frame.size.height
 #define ViewHeight       self.view.frame.size.height
@@ -123,58 +124,6 @@ BOOL isLogin = false;
     NSInteger IndexHeight = _tableView.frame.size.height/_arrayData.count;
     return IndexHeight;
 }
-//圆角绘制(将要显示的时候调用这个方法) ----->扁平化以后没了
-/*
-  本质就是修改背景View，view的layer层自己分局cell的类型（顶、底和中间）来绘制
- */
-/*-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if ([cell respondsToSelector:@selector(tintColor)]) {
-        CGFloat cornerRadius = 6.0f;//圆角大小
-        cell.backgroundColor = [UIColor clearColor];
-        CAShapeLayer *layer = [[CAShapeLayer alloc]init];
-        CGMutablePathRef pathRef = CGPathCreateMutable();
-        CGRect bounds = CGRectInset(cell.bounds, 10, 0);
-        BOOL addLine = NO;
-        
-        if (indexPath.row == 0&&indexPath.row == [tableView numberOfRowsInSection:indexPath.section]-1) {
-            CGPathAddRoundedRect(pathRef, nil, bounds, cornerRadius, cornerRadius);
-        }else if (indexPath.row == 0){
-            //最顶端的cell(两个向下圆弧和一条线)
-            CGPathMoveToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxX(bounds));
-            CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), cornerRadius);
-            CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), cornerRadius);
-            CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds));
-            addLine = YES;
-        }else if (indexPath.row == [tableView numberOfRowsInSection:indexPath.row]-1){
-            //最低端的cell（两个向上的圆弧和一条线）
-            CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds));
-            CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds), CGRectGetMidX(bounds), CGRectGetMaxY(bounds), cornerRadius);
-            CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
-            CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds));
-        }else{
-            //中间的cell
-            CGPathAddRect(pathRef, nil, bounds);
-            addLine = YES;
-        }
-        layer.path = pathRef;
-        CFRelease(pathRef);
-        layer.fillColor = [UIColor whiteColor].CGColor;//cell的填充颜色
-        layer.strokeColor = [UIColor lightGrayColor].CGColor;//cell的边框颜色
-        
-        if (addLine == YES) {
-            CALayer *lineLayer = [[CALayer alloc]init];
-            CGFloat lineHeight  = (1.f/[UIScreen mainScreen].scale);
-            lineLayer.frame = CGRectMake(CGRectGetMinX(bounds), bounds.size.height-lineHeight, bounds.size.width, lineHeight);
-            lineLayer.backgroundColor = [UIColor lightGrayColor].CGColor;//绘制中间间隔颜色
-            [layer addSublayer:lineLayer];
-        }
-        UIView *bgView = [[UIView alloc]initWithFrame:bounds];
-        [bgView.layer insertSublayer:layer atIndex:0];
-        bgView.backgroundColor = [UIColor clearColor];
-        cell.backgroundView = bgView;
-    }
-}*/
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *ID = @"ID";
@@ -186,18 +135,12 @@ BOOL isLogin = false;
         cell.accessoryType =UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    NSString *strImage = [NSString stringWithFormat:@"A%ld.png",indexPath.row%5];
+    NSString *strImage = [NSString stringWithFormat:@"D%ld.png",indexPath.row%5];
     UIImage *image = [UIImage imageNamed:strImage];
     cell.imageView.image = image;
    
-    if (isLogin) {
-        if (indexPath.row ==0) {
-            cell.imageView.image = [UIImage imageNamed:@"coco@2x.jpg"];
-        }
-    }
-    
     if (indexPath.row==1) {
-        cell.detailTextLabel.text = @"v1.0.0.1";
+        cell.detailTextLabel.text = @"v1.0.0.2<更新版本>";
     }
     
     if(indexPath.row ==3){
@@ -256,66 +199,8 @@ BOOL isLogin = false;
     }else if(Code ==2){
         [self pushAlertController:@"相关信息" andMessage:@"制作人：Pyrrha\nAPI提供方:阿凡达数据\t天行数据"];
     }else{
-
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"登陆" message:@"请输入你的账户密码" preferredStyle:UIAlertControllerStyleAlert];
-        
-        [alert addAction:[UIAlertAction actionWithTitle:@"登陆" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            NSArray *textfields =alert.textFields;
-            UITextField *namefield = textfields[0];
-            UITextField *passwordfield = textfields[1];
-            //查询是否正确插入
-//            NSString *strPath = [NSHomeDirectory() stringByAppendingString:@"/Documents/figues.db"];
-//            _FMDB = [FMDatabase databaseWithPath:strPath];
-            
-            //模拟登陆操作
-            if (_FMDB !=nil) {
-                BOOL isOpen = [_FMDB open];
-                if (isOpen) {
-                    NSLog(@"打开成功");
-                    NSString *Query = @"select *from figues;";
-                    FMResultSet *result = [_FMDB executeQuery:Query];
-                    NSString *SQlistName;
-                    NSString *SQlistPassword;
-                    while ([result next]) {
-                        SQlistName = [result stringForColumn:@"name"];
-                        SQlistPassword = [result stringForColumn:@"password"];
-                    }
-                    
-                    NSString *name = [[NSString alloc]initWithString:namefield.text];
-                    NSString *password = [[NSString alloc]initWithString:passwordfield.text];
-                    
-                    
-                    if([name isEqualToString:SQlistName]&[password isEqualToString:SQlistPassword]){
-                        [self pushAlertController:@"登陆成功" andMessage:@"模拟登陆成功"];
-                        //self.title = @"Pyrrha";
-                        UIBarButtonItem *MY = [[UIBarButtonItem alloc]initWithTitle:@"版本预告" style:UIBarButtonItemStylePlain target:self action:@selector(MY)];
-                        self.navigationItem.rightBarButtonItem = MY;
-                        isLogin = true;
-                        [_tableView reloadData];
-                    }else{
-                        [self pushAlertController:@"登陆失败" andMessage:@"请检查登陆账号或密码\n<正确账号:XF\n正确密码:1234>"];
-                    }
-                }
-            }else{
-                NSLog(@"数据库出问题了！");
-            }
-            
-        }]];
-        //添加文本框
-        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.placeholder =@"name";
-            textField.textColor = [UIColor blackColor];
-            textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-            textField.borderStyle = UITextBorderStyleRoundedRect;
-        }];
-        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.textColor = [UIColor blackColor];
-            textField.secureTextEntry = YES;
-            textField.placeholder =@"Password";
-            textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-            textField.borderStyle = UITextBorderStyleRoundedRect;
-        }];
-        [self presentViewController:alert animated:YES completion:nil];
+        //跳转登陆界面
+        [self.navigationController pushViewController:[LoginViewController new] animated:YES];
     }
 }
 #pragma Mark  --- 响应按钮版本预告
@@ -330,35 +215,6 @@ BOOL isLogin = false;
     [self presentViewController:alert animated:YES completion:nil];
 
 }
-#pragma Mark  --- 数据库相关
--(void)creatSqLite{
-    //表路径
-    NSString *documentsPath = [NSHomeDirectory() stringByAppendingString:@"/Documents/figues.db"];
-    
-    //文件路径
-    NSString *filePath = [documentsPath stringByAppendingString:@"Login.sqlite"];
-    
-    //实例化FMDB对象
-    _FMDB = [FMDatabase databaseWithPath:filePath];
-    
-    BOOL isopen = [_FMDB open];
-    if (isopen) {
-        NSLog(@"数据库打开");
-    }
-    
-    //初始化数据表
-    NSString *userInfo = @"create table if not exists figues(id interger primary key,name varchar(20),password varchar(20));";
-    [_FMDB executeUpdate:userInfo];
-
-    NSString *Info = @"insert into figues values(1,'XF','1234');";
-    BOOL is = [_FMDB executeUpdate:Info];
-    if (is) {
-        NSLog(@"插入成功");
-    }
-    //安全起见
-    [_FMDB close];
-    
-}
 #pragma Mark  --- 处理
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -372,7 +228,6 @@ BOOL isLogin = false;
     
     [self creatScrollViewImage];
     [self creatPageControl];
-    [self creatSqLite];
 }
 #pragma Mark  --- 退出当前APP
 -(void)creatAlertView{

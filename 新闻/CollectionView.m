@@ -54,7 +54,6 @@
 }
 //控制每一个方块的大小
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"当前视图宽度:%f",self.view.frame.size.width);
     return CGSizeMake(self.view.frame.size.width
                       /2, 200);
 }

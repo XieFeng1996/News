@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FMDatabase.h"
 /**
   图片轮播
  */
@@ -19,7 +18,6 @@
     NSTimer *_timer;
     NSMutableArray *_arrayData;
     UIAlertView *_alert;
-    FMDatabase *_FMDB;
 }
 @property(nonatomic,strong)UIView *rightView;
 @property(nonatomic,strong)UIView *leftView;
