@@ -131,6 +131,11 @@
     _UserAcount.delegate =self;
     _UserPassword.delegate = self;
     
+    //设置按钮文字带下划线
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:@"不正经协议"];
+    NSRange strRange = {0,[str length]};
+    [str addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:strRange];
+    [_dele setAttributedTitle:str forState:UIControlStateNormal];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -182,7 +187,7 @@
 }
 #pragma Mark --- 按钮处理
 - (IBAction)NewsDelegate:(id)sender { //不正经协议
-    
+    [self pushAlertController:@"协议" andMessage:@"协议1:略\n协议2:略\n协议3:略\n俗称：略法三章"];
 }
 - (IBAction)Login:(id)sender { //登陆
     //查询数据库

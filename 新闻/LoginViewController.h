@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *UserPassword; //密码
 
 - (IBAction)NewsDelegate:(id)sender;//新闻协议按钮
+@property (weak, nonatomic) IBOutlet UIButton *dele;//用于按钮上的修改文字
+
 - (IBAction)Login:(id)sender;//账号登陆按钮
 @property (weak, nonatomic) IBOutlet UIButton *login;
 - (IBAction)Regiest:(id)sender;//账号注册按钮
